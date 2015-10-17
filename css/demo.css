@@ -1,0 +1,243 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+* html .clearfix{ 
+    zoom: 1; 
+} 
+
+*:first-child+html .clearfix { 
+    zoom: 1; 
+} 
+
+.gridster * {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input, select{
+    background:#fff;
+    border:1px solid #eee;
+    height:30px;
+    width:100%;
+    margin:0 0 15px 0;
+}
+
+input:focus{
+    border:1px solid #004756;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #444;
+    margin: 10px 40px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+
+.gridster ul {
+    background-color: #004756;
+}
+
+.gridster li {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100%;
+}
+
+
+.gridster {
+    margin: 0 auto;
+    opacity: .8;
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.gridster .gs-w {
+    background: #FFF;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.gridster .preview-holder {
+    border: 2px dashed #fff;
+    background: none;
+}
+
+.gridster .remove-tile{
+    position:absolute;
+    top:5px;
+    right:5px;
+    background:#004756;
+    color:#fff;
+    text-align:center;
+    width:15px;
+    height:16px;
+    font-size:10px;
+}
+
+.gridster .edit-tile{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 30%;
+    margin: auto;
+    float:left;
+}
+
+/* {{ add-area styles }} */
+.add-area{
+    width:300px;
+    padding:10px;
+    background:#f5f5f5;
+    position:fixed;
+    top:10px;
+    right:-300px;
+    z-index:9999;
+}
+
+.add-area h3{
+    border-bottom:1px solid #333;
+}
+
+.add-area .add-options{
+    float:left;
+}
+
+.add-area .btn{
+    float:left;
+    width:100%;
+    text-align:center;
+    cursor:pointer;
+    padding:5px 15px;
+    margin:0 0 10px 0;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.add-area .add-tile{
+    color:#555;
+    border:1px solid #aaa;    
+    background: rgb(252,255,244);
+    background: -moz-linear-gradient(top,  rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,244,1)), color-stop(40%,rgba(223,229,215,1)), color-stop(100%,rgba(179,190,173,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: -o-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.add-area .remove-all{
+    color:#fff;
+    border:1px solid #FF7777;
+    background: rgb(254,187,187);
+    background: -moz-linear-gradient(top,  rgba(254,187,187,1) 0%, rgba(254,144,144,1) 45%, rgba(255,92,92,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,187,187,1)), color-stop(45%,rgba(254,144,144,1)), color-stop(100%,rgba(255,92,92,1)));
+    background: -webkit-linear-gradient(top,  rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%);
+    background: -o-linear-gradient(top,  rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%);
+    background: linear-gradient(to bottom,  rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', endColorstr='#ff5c5c',GradientType=0 );
+}
+
+.add-area .change-lang{
+    color:#555;
+    border:1px solid #aaa;  
+    margin:0 0 30px 0;
+    background: -moz-linear-gradient(top,  rgba(252,255,244,1) 0%, rgba(223,229,215,1) 40%, rgba(179,190,173,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,244,1)), color-stop(40%,rgba(223,229,215,1)), color-stop(100%,rgba(179,190,173,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: -o-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+
+.add-area .lbl{
+    font-size:12px;
+    width:100%;
+    float:left;
+    font-weight:bold;
+    margin:0 0 3px 0;
+}
+
+.add-area .buttons{
+    margin:15px 0 0 0;
+    float:left;
+    width:100%;
+}
+
+.add-area .config-ico{
+    background:#004756;
+    width:55px;
+    height:55px;
+    float:left;
+    position:absolute;
+    top:0;
+    left:-55px;
+    opacity: .8;
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.add-area .config-ico i{
+    width:40px;
+    height:40px;
+    background: url(../images/config-ico.png) no-repeat center center;
+    display:block;
+    margin:7px 0 0 7px;
+}
+
+/* {{ color switch }} */
+.color-item{
+    width:30px;
+    height:30px;
+    float:left;
+    margin:0 20px 20px 0;
+    box-shadow:2px 2px 2px #aaa;
+    cursor:pointer;
+}
+
+.color-item:nth-child(6n){
+    margin:0;
+}
+
+
