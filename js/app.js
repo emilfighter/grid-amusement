@@ -138,6 +138,7 @@ var GRID = (function() {
             config.tileOpts['name_en'] = $('.tile-input-en').val();
 
             config.tiles.add_widget( render(config.templates['def'], config.tileOpts), 1, 1, 1, 1);
+            $('input').val('');
         });
 
 
