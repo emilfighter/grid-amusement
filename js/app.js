@@ -2,6 +2,8 @@ var lang = 'pl';
 
 var GRID = (function() {
 
+    'use strict';
+
     var config = {
 
         tiles: null,
@@ -12,8 +14,9 @@ var GRID = (function() {
             'close': 'X'
         },
         templates: {
-            'def': '<li class="tile-item" style="background:{{color}};"><p class="edit-tile" data-pl="{{name}}" data-en="{{name_en}}">{{name}}</p><span class="remove-tile">{{close}}</span></li>',
-            'color': '<div class="color-item color-{{name}}" data-hex="{{hex}}" style="background:{{hex}}"></div>'
+            'def': '<li class="tile-item" style="background:{{color}}; background-size:cover"><p class="edit-tile" data-pl="{{name}}" data-en="{{name_en}}">{{name}}</p><span class="remove-tile">{{close}}</span></li>',
+            'color-item': '<div class="color-item color-{{name}}" data-value="{{value}}" style="background:{{value}}"></div>',
+            'photo-item': '<div class="color-item color-{{name}}" data-value="url({{value}}) no-repeat 0 0" style="background: url({{value}}) no-repeat 0 0; background-size:cover;"></div>',
         },
         serialization: [
             {
@@ -43,28 +46,31 @@ var GRID = (function() {
         ],
         colors: [
             {
-                name: 'none', hex: 'none'
+                name: 'none', value: 'none'
             },
             {
-                name: 'yellow', hex: '#F2E85E'
+                name: 'yellow', value: '#F2E85E'
             },
             {
-                name: 'orange', hex: '#F2BA5E'
+                name: 'orange', value: '#F2BA5E'
             },
             {
-                name: 'pink', hex: '#FA89E5'
+                name: 'pink', value: '#FA89E5'
             },
             {
-                name: 'purple', hex: '#AD409F'
+                name: 'purple', value: '#AD409F'
             },
             {
-                name: 'green', hex: '#60BF6C'
+                name: 'green', value: '#60BF6C'
             },
             {
-                name: 'green2', hex: '#11691C'
+                name: 'green2', value: '#11691C'
             },
             {
-                name: 'grey', hex: '#C5C9C6'
+                name: 'grey', value: '#C5C9C6'
+            },
+            {
+                name: 'photo', value: 'images/advert.jpg'
             }
         ]
     };
@@ -110,17 +116,21 @@ var GRID = (function() {
             config.tiles.remove_widget(el);
         });  
 
+
         /** remove all tiles from grid **/
         $(document).on('click', '.remove-all', function(){
             config.tiles.remove_all_widgets();
         });
 
+
         /** set dedicated color to your new tile **/
         $(document).on('click', '.color-item', function(){
-            config.tileOpts['color'] = $(this).data('hex');
+            config.tileOpts['color'] = $(this).data('value');
+
             $('.color-item').css('border','none');
             $(this).css('border','2px solid #004756');
         });
+
 
         /** add new tile with specified name & color to grid **/
         $(document).on('click', '.add-tile', function(){
@@ -129,6 +139,7 @@ var GRID = (function() {
 
             config.tiles.add_widget( render(config.templates['def'], config.tileOpts), 1, 1, 1, 1);
         });
+
 
         /** show configuration box **/
         $(document).on('click', '.config-closed', function(){
@@ -139,6 +150,7 @@ var GRID = (function() {
                     .animate({'right':0}, "slow");
         });
 
+
         /** hide configuration box **/
         $(document).on('click', '.config-opened', function(){
             $(this)
@@ -147,6 +159,7 @@ var GRID = (function() {
                 .parent()
                     .animate({'right':'-300px'}, "slow");
         });
+
 
         /** change language inside tiles **/
         $(document).on('click', '.change-lang', function(){
@@ -163,7 +176,7 @@ var GRID = (function() {
         config.serialization = Gridster.sort_by_row_and_col_asc(config.serialization);
 
         config.tiles = $(tilespace).gridster({
-            widget_base_dimensions: [120, 120],
+            widget_base_dimensions: [130, 130],
             widget_margins: [10, 10],
             max_cols: 6,
             helper: 'clone',
@@ -175,8 +188,10 @@ var GRID = (function() {
 
 
         $.each(config.colors, function(index) {
-            var colorItem = render(config.templates['color'], this);
-            $('.color-trial').append(colorItem);
+            var colorItem = render(config.templates['color-item'], this),
+                photoItem = render(config.templates['photo-item'], this);
+
+            this.name === 'photo' ? $('.color-trial').append(photoItem) : $('.color-trial').append(colorItem);
         });
 
 

@@ -1,13 +1,13 @@
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 .clearfix:after {
@@ -28,12 +28,12 @@ html {
 } 
 
 .gridster * {
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 input, select{
@@ -70,7 +70,6 @@ body {
     text-align: center;
     line-height: 100%;
 }
-
 
 .gridster {
     margin: 0 auto;
@@ -116,6 +115,8 @@ body {
     height: 30%;
     margin: auto;
     float:left;
+    color:#000;
+    text-shadow: 1px 1px #fff;
 }
 
 /* {{ add-area styles }} */
@@ -186,7 +187,6 @@ body {
     background: linear-gradient(to bottom,  rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
 }
-
 
 .add-area .lbl{
     font-size:12px;
