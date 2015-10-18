@@ -118,7 +118,7 @@ var GRID = (function() {
 
 
         /** remove all tiles from grid **/
-        $(document).on('click', '.remove-all', function(){
+        $(document).on('click', '.remove-tiles', function(){
             config.tiles.remove_all_widgets();
         });
 
@@ -134,8 +134,8 @@ var GRID = (function() {
 
         /** add new tile with specified name & color to grid **/
         $(document).on('click', '.add-tile', function(){
-            config.tileOpts['name'] = $('.add-tile-input').val();
-            config.tileOpts['name_en'] = $('.add-tile-input-en').val();
+            config.tileOpts['name'] = $('.tile-input').val();
+            config.tileOpts['name_en'] = $('.tile-input-en').val();
 
             config.tiles.add_widget( render(config.templates['def'], config.tileOpts), 1, 1, 1, 1);
         });
@@ -191,7 +191,7 @@ var GRID = (function() {
             var colorItem = render(config.templates['color-item'], this),
                 photoItem = render(config.templates['photo-item'], this);
 
-            this.name === 'photo' ? $('.color-trial').append(photoItem) : $('.color-trial').append(colorItem);
+            this.name === 'photo' ? $('.color-list').append(photoItem) : $('.color-list').append(colorItem);
         });
 
 
@@ -211,6 +211,5 @@ var GRID = (function() {
 $(function(){
 
     GRID.init(".gridster ul");
-
 
 });

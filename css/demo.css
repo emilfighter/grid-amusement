@@ -40,8 +40,7 @@ input, select{
     background:#fff;
     border:1px solid #eee;
     height:30px;
-    width:100%;
-    margin:0 0 15px 0;
+    width:inherit;
 }
 
 input:focus{
@@ -162,7 +161,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
 }
 
-.add-area .remove-all{
+.add-area .remove-tiles{
     color:#fff;
     border:1px solid #FF7777;
     background: rgb(254,187,187);
@@ -190,7 +189,7 @@ body {
 
 .add-area .lbl{
     font-size:12px;
-    width:100%;
+    width:inherit;
     float:left;
     font-weight:bold;
     margin:0 0 3px 0;
@@ -224,6 +223,12 @@ body {
     background: url(../images/config-ico.png) no-repeat center center;
     display:block;
     margin:7px 0 0 7px;
+}
+
+.option-item{
+    margin:0 0 15px 0;
+    width:100%;
+    float:left;
 }
 
 /* {{ color switch }} */
